@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student QR Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<h2>QR Generator</h2>
+
+<input id="id" placeholder="Student ID">
+<input id="name" placeholder="Name">
+<input id="grade" placeholder="Grade">
+<input id="section" placeholder="Section">
+<br><br>
+
+<button onclick="generate()">Generate QR</button>
+
+<div id="qrcode"></div>
+
+<script>
+function generate(){
+    document.getElementById("qrcode").innerHTML="";
+
+    const id=document.getElementById("id").value;
+    const name=document.getElementById("name").value;
+    const grade=document.getElementById("grade").value;
+    const section=document.getElementById("section").value;
+
+    const baseURL="https://yourusername.github.io/repository/student.html";
+
+    const link = `${baseURL}?id=${id}&name=${encodeURIComponent(name)}&grade=${grade}&section=${section}`;
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:link,
+        width:200,
+        height:200
+    });
+}
+</script>
+
+</body>
+</html>

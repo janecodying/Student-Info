@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info</title>
+</head>
+<body>
+
+<h2>Student Information</h2>
+<p><b>ID:</b> <span id="id"></span></p>
+<p><b>Name:</b> <span id="name"></span></p>
+<p><b>Grade:</b> <span id="grade"></span></p>
+<p><b>Section:</b> <span id="section"></span></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("id").textContent = params.get("id");
+document.getElementById("name").textContent = params.get("name");
+document.getElementById("grade").textContent = params.get("grade");
+document.getElementById("section").textContent = params.get("section");
+</script>
+
+</body>
+</html>
